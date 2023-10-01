@@ -23,7 +23,8 @@ export class PokeDetailsComponent implements OnChanges {
   getPokemonDetails() {
     if(this.pokemonName !== undefined) {
       this.pokeService.getPokeDetails(this.pokemonName).subscribe({
-        next: (x: any) => this.pokemon = x
+        next: (data: any) => this.pokemon = data,
+        error: () => Swal.fire('Error', 'Hubo un error inesperado.', 'error')
       });
     }
   }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // Servicio - Interface
 import { PokeService } from '../services/poke.service';
 import { PokemonTable } from '../interfaces/pokeList.interface';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -29,7 +30,10 @@ export class PokemonsComponent implements OnInit {
   // PokeList
   getPokeList() {
     return this.pokeService.getPokemonList()
-      .subscribe( (resp: PokemonTable[]) => this.pokemons = resp );
+      .subscribe({
+        next: (resp: PokemonTable[]) => this.pokemons = resp,
+        error: () => Swal.fire('Error', 'Hubo un error inesperado.', 'error')
+      });
   }
 
   pokeSearch(pokemon: string) {

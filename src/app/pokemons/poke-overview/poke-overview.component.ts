@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // Servicio - Interface
 import { PokemonTable } from 'src/app/interfaces/pokeList.interface';
 import { PokeService } from 'src/app/services/poke.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-poke-overview',
@@ -27,6 +28,7 @@ export class PokeOverviewComponent implements OnInit {
         this.pokemonList = data;
         this.pokemonsAlphabetCount();
       },
+      error: () => Swal.fire('Error', 'Hubo un error inesperado.', 'error')
     });
   }
 

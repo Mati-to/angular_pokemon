@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 // Servicio
 import { PokeService } from 'src/app/services/poke.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-fav-pokemon',
@@ -25,7 +26,8 @@ export class FavPokemonComponent implements OnInit {
       this.favPokemon$.subscribe({
         next: (data: any) => {
           this.pokemon = data
-        }
+        },
+        error: () => Swal.fire('Error', 'Hubo un error inesperado.', 'error')
       })
     }
   }
