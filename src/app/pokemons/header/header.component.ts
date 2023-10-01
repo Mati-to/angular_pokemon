@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +6,9 @@ import { Observable } from 'rxjs';
   styles: [
   ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent  {
 
   pokemon: any = '';
-
-  ngOnInit(): void {
-
-  }
 
   getPokeHeaderInfo(data: any) {
     this.pokemon = data;

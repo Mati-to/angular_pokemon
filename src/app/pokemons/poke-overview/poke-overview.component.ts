@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+// Servicio - Interface
 import { PokemonTable } from 'src/app/interfaces/pokeList.interface';
 import { PokeService } from 'src/app/services/poke.service';
 

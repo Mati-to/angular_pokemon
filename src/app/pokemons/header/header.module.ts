@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { FavPokemonComponent } from './fav-pokemon/fav-pokemon.component';
 
-// Custom Pipes
 
 @NgModule({
   declarations: [

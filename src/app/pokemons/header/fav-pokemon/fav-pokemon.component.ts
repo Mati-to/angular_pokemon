@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+// Servicio
 import { PokeService } from 'src/app/services/poke.service';
 
 @Component({
@@ -9,14 +11,10 @@ import { PokeService } from 'src/app/services/poke.service';
 })
 export class FavPokemonComponent implements OnInit {
 
-  favPokemon$: any = this.pokeService.favPokemon$;
-  pokemon: any = '';
-
   @Output() pokeHeader = new EventEmitter();
 
-  // Pokemon:
-  /* name, id, heigt, weight, types, species
-  */
+  favPokemon$: any = this.pokeService.favPokemon$;
+  pokemon: any = '';
 
   constructor(
     private pokeService: PokeService
@@ -25,8 +23,8 @@ export class FavPokemonComponent implements OnInit {
   ngOnInit(): void {
     if(this.favPokemon$ !== undefined) {
       this.favPokemon$.subscribe({
-        next: (x: any) => {
-          this.pokemon = x
+        next: (data: any) => {
+          this.pokemon = data
         }
       })
     }

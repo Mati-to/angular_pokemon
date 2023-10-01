@@ -1,5 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PokeList, PokemonTable } from 'src/app/interfaces/pokeList.interface';
+
+// Interface
+import { PokemonTable } from 'src/app/interfaces/pokeList.interface';
 
 @Pipe({
   name: 'paginate'

@@ -1,8 +1,6 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-} from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
+
+// Servicio - Otros
 import { PokeService } from 'src/app/services/poke.service';
 import Swal from 'sweetalert2';
 

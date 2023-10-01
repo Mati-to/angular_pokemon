@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-// Servicio
+// Servicio - Interface
 import { PokeService } from '../services/poke.service';
 import { PokemonTable } from '../interfaces/pokeList.interface';
+
 
 @Component({
   selector: 'app-pokemons',
