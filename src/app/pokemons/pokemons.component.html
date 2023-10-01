@@ -1,0 +1,63 @@
+<app-header></app-header>
+
+<main class="container-fluid">
+  <div class="row mx-4">
+    <div class="col-lg-7">
+
+      <!-- Poke Búsqueda -->
+      <div class='col-12'>
+        <input 
+          class='form-control mb-2' 
+          type="text" 
+          placeholder='Busca un pokemon...'
+          #pokeSearchBar
+          (keyup)="pokeSearch(pokeSearchBar.value)"  >
+      </div>
+
+      <!-- Poke Lista -->
+      <div class="card mb-sm-4">
+        <div class="card-body">
+          <div class="table-responsive">
+            <!-- Contenido Tabla -->
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Pokémon</th>
+                  <th>Apariencia</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let pokemon of pokemons | paginate:page:search">
+                <tr role='button' (click)="getPokeName(pokemon.name)" class='trTable' >
+                  <td class='pokeId' >{{ pokemon.id }}</td>
+                  <td>{{ pokemon.name | charUppercase }}</td>
+                  <td>
+                    <img [src]="pokemon.image" [alt]="pokemon.name" class='listImage' >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Paginación -->
+            <div class="btn-toolbar" role="toolbar">
+              <div class="btn-group me-2" role="group" aria-label="First group">
+                <button (click)="prevPage()" type="button" class="btn btn-outline-primary">
+                  Ant.
+                </button>
+                <button (click)="nextPage()" type="button" class="btn btn-outline-primary">
+                  Sig.
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-5 ">
+      <app-poke-details [pokemon]='pokeSelected'></app-poke-details>
+      <app-poke-overview></app-poke-overview>
+    </div>
+  </div>
+</main>

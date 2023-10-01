@@ -1,0 +1,35 @@
+<div class="card mb-sm-4">
+  <div class="card-body tableHeight">
+    <div class="table-responsive">
+      <!-- Contenido Tabla -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Letra</th>
+            <th>N° de Pokemons</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let letra of alfabeto | paginateOverview:page ">
+          <tr>
+            <td>{{letra | uppercase}}</td>
+            <td>{{pokeCuenta[letra]}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Paginación -->
+      <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button (click)="prevPage()" type="button" class="btn btn-outline-primary">
+            Ant.
+          </button>
+          <button [disabled]="page.valueOf() === 25" (click)="nextPage()" type="button" class="btn btn-outline-primary">
+            Sig.
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

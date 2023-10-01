@@ -1,0 +1,47 @@
+<div class="animate__animated animate__fadeIn" *ngIf="pokemon else waiting">
+  <div class="d-flex justify-content-center">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class='card-header text-center'>
+          <h4>{{ pokemon.name | charUppercase }}</h4>
+        </div>
+        <div class="col-md-5">
+          <div class="d-flex justify-content-center">
+            <img [src]="pokemon.image" class="card-img-top pokeImg mx-auto" [alt]="pokemon.name">
+          </div>
+          <h6 class="card-subtitle mb-2 text-body-secondary text-center">
+            Altura: {{pokemon.height | decimAMetros}}m Peso: {{pokemon.weight | hectogramsGrams}}Kg
+          </h6>
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <ul class="card-text">
+              <li>Tipo:
+                <span *ngFor="let type of pokemon.types; let last = last">
+                  {{ type.type.name | charUppercase }}
+                  <ng-container *ngIf="!last">- </ng-container>
+                </span>
+              </li>
+              <li> Habilidades:
+                <span *ngFor="let ability of pokemon.abilities; let last = last">
+                  {{ ability.ability.name | charUppercase }}
+                  <ng-container *ngIf="!last">- </ng-container>
+                </span>
+              </li>
+            </ul>
+            <div class="col-lg-12 d-flex justify-content-center">
+              <button (click)="pokemonToFavs()" class='btn btn-primary mt-3'>
+                Agregar a Favorito
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #waiting>
+  <h4>PokeInfo</h4>
+  <p>Seleccione un pokemon...</p>
+</ng-template>

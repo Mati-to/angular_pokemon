@@ -1,0 +1,10 @@
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+
+.tableHeight {
+  height: 300px;
+}
